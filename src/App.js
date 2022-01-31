@@ -1,7 +1,7 @@
-import "./App.css";
+import "./App.scss";
 
 function App() {
-  return <div>hola</div>;
+  return <div>hola netlify 😃</div>;
 }
 
 export default App;
