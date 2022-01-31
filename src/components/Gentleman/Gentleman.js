@@ -1,6 +1,6 @@
-const Gentleman = ({ gentleman, action, button }) => {
+const Gentleman = ({ gentleman, actionCard, actionIcon }) => {
   return (
-    <li className="gentleman">
+    <li className="gentleman" onClick={actionCard}>
       <div className="gentleman__avatar-container">
         <img
           className="gentleman__avatar"
@@ -27,7 +27,10 @@ const Gentleman = ({ gentleman, action, button }) => {
         </ul>
       </div>
       <i className="icon gentleman__icon fas fa-check"></i>
-      <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+      <i
+        className="icon gentleman__icon gentleman__icon--delete fas fa-times"
+        onClick={actionIcon}
+      ></i>
     </li>
   );
 };

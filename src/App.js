@@ -17,6 +17,14 @@ const App = () => {
       gentlemen.map((gentleman) => ({ ...gentleman, selected: true }))
     );
 
+  const toggleGentleman = (gentlemanId) => {
+    console.log(gentlemanId);
+    const gentlemanToToggle = gentlemen.find(({ id }) => gentlemanId === id);
+    console.log(gentlemanToToggle);
+    gentlemanToToggle.selected = !gentlemanToToggle.selected;
+    setGentlemen([...gentlemen]);
+  };
+
   return (
     <div className="container">
       <header className="main-header">
@@ -33,7 +41,12 @@ const App = () => {
       <main className="main">
         <ul className="gentlemen">
           {gentlemen.map((gentleman, index) => (
-            <Gentleman key={index} gentleman={gentleman} />
+            <Gentleman
+              key={index}
+              gentleman={gentleman}
+              actionCard={() => toggleGentleman(gentleman.id)}
+              actionIcon={() => null}
+            />
           ))}
         </ul>
       </main>
