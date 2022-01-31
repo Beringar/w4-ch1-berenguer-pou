@@ -26,7 +26,13 @@ const Gentleman = ({ gentleman, actionCard, actionIcon }) => {
           </li>
         </ul>
       </div>
-      <i className="icon gentleman__icon fas fa-check"></i>
+      <i
+        className={
+          gentleman.selected
+            ? "icon gentleman__icon fas fa-check"
+            : "icon gentleman__icon"
+        }
+      ></i>
       <i
         className="icon gentleman__icon gentleman__icon--delete fas fa-times"
         onClick={actionIcon}
