@@ -3,6 +3,7 @@ import dataGentlemen from "./data/dataGentlemen";
 import "./App.scss";
 import Info from "./components/Info/Info";
 import Button from "./components/Button/Button";
+import Gentleman from "./components/Gentleman/Gentleman";
 
 const App = () => {
   const [gentlemen, setGentlemen] = useState(dataGentlemen);
@@ -30,7 +31,11 @@ const App = () => {
         />
       </section>
       <main className="main">
-        <ul className="gentlemen"></ul>
+        <ul className="gentlemen">
+          {gentlemen.map((gentleman, index) => (
+            <Gentleman key={index} />
+          ))}
+        </ul>
       </main>
     </div>
   );
