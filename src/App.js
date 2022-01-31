@@ -1,13 +1,22 @@
+import { useState } from "react";
+import dataGentlemen from "./data/dataGentlemen";
 import "./App.scss";
+import Info from "./components/Info/Info";
 
-function App() {
+const App = () => {
+  const [gentlemen, setGentlemen] = useState(dataGentlemen);
+
+  const selectedGentlemen = gentlemen.filter(
+    (gentleman) => gentleman.selected
+  ).length;
+
   return (
     <div className="container">
       <header className="main-header">
         <h1 className="main-title">The pointing gentlemen</h1>
       </header>
       <section className="controls">
-        <p className="info">0 gentlemen pointing at you</p>
+        <Info number={selectedGentlemen} classname="info" />
         <button className="button button--select">Select all</button>
       </section>
       <main className="main">
@@ -100,6 +109,6 @@ function App() {
       </main>
     </div>
   );
-}
+};
 
 export default App;
