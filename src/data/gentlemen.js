@@ -1,4 +1,4 @@
-const gentlemenAPI = [
+const gentlemen = [
   {
     id: 1,
     name: "El Fary",
@@ -37,4 +37,4 @@ const gentlemenAPI = [
   },
 ];
 
-export default gentlemenAPI;
+export default gentlemen;
