@@ -33,7 +33,7 @@ const App = () => {
       <main className="main">
         <ul className="gentlemen">
           {gentlemen.map((gentleman, index) => (
-            <Gentleman key={index} />
+            <Gentleman key={index} gentleman={gentleman} />
           ))}
         </ul>
       </main>
