@@ -18,10 +18,16 @@ const App = () => {
     );
 
   const toggleGentleman = (gentlemanId) => {
-    console.log(gentlemanId);
     const gentlemanToToggle = gentlemen.find(({ id }) => gentlemanId === id);
-    console.log(gentlemanToToggle);
     gentlemanToToggle.selected = !gentlemanToToggle.selected;
+    setGentlemen([...gentlemen]);
+  };
+
+  const removeGentleman = (gentlemanId) => {
+    const gentlemanToRemoveId = gentlemen.findIndex(
+      ({ id }) => gentlemanId === id
+    );
+    gentlemen.splice(gentlemanToRemoveId, 1);
     setGentlemen([...gentlemen]);
   };
 
@@ -45,7 +51,7 @@ const App = () => {
               key={index}
               gentleman={gentleman}
               actionCard={() => toggleGentleman(gentleman.id)}
-              actionIcon={() => null}
+              actionIcon={() => removeGentleman(gentleman.id)}
             />
           ))}
         </ul>

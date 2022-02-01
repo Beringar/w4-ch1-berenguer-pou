@@ -1,4 +1,7 @@
+import getInitialLetter from "../../utilities/getInitialLetter";
+
 const Gentleman = ({ gentleman, actionCard, actionIcon }) => {
+  const initialLetter = getInitialLetter(gentleman.name);
   return (
     <li className="gentleman" onClick={actionCard}>
       <div className="gentleman__avatar-container">
@@ -7,7 +10,7 @@ const Gentleman = ({ gentleman, actionCard, actionIcon }) => {
           src={`img/${gentleman.picture}`}
           alt={`${gentleman.name} pointing at you`}
         />
-        <span className="gentleman__initial">{gentleman.name}</span>
+        <span className="gentleman__initial">{initialLetter}</span>
       </div>
       <div className="gentleman__data-container">
         <h2 className="gentleman__name">{gentleman.name}</h2>
@@ -26,7 +29,13 @@ const Gentleman = ({ gentleman, actionCard, actionIcon }) => {
           </li>
         </ul>
       </div>
-      <i className="icon gentleman__icon fas fa-check"></i>
+      <i
+        className={
+          gentleman.selected
+            ? "icon gentleman__icon fas fa-check"
+            : "icon gentleman__icon"
+        }
+      ></i>
       <i
         className="icon gentleman__icon gentleman__icon--delete fas fa-times"
         onClick={actionIcon}
